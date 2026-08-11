@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =====================================================
+         META
+    ====================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Students | SmartStay</title>
+
+
+    <!-- =====================================================
+         ADMIN CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../static/css/admin.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SIDEBAR
+====================================================== -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+        🏢 SmartStay
+    </div>
+
+
+    <ul class="sidebar-menu">
+
+        <li>
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+        </li>
+
+
+        <li class="active">
+            <a href="students.html">
+                👨‍🎓 Students
+            </a>
+        </li>
+
+
+        <li>
+            <a href="staff.html">
+                👨‍🔧 Staff
+            </a>
+        </li>
+
+
+        <li>
+            <a href="rooms.html">
+                🏠 Rooms
+            </a>
+        </li>
+
+
+        <li>
+            <a href="complaints.html">
+                📝 Complaints
+            </a>
+        </li>
+
+    </ul>
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN CONTENT
+====================================================== -->
+
+<main class="main-content">
+
+
+    <!-- =================================================
+         PAGE HEADER
+    ================================================== -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>Students</h1>
+
+            <p>
+                Manage hostel students
+            </p>
+
+        </div>
+
+
+        <a
+            href="add_student.html"
+            class="btn-primary"
+        >
+            + Add Student
+        </a>
+
+    </div>
+
+
+    <!-- =================================================
+         STUDENT TABLE
+    ================================================== -->
+
+    <div class="table-card">
+
+
+        <!-- TABLE HEADER -->
+
+        <div class="table-header">
+
+            <h2>
+                Student List
+                (<span id="studentTotal">0</span>)
+            </h2>
+
+
+            <input
+                type="text"
+                id="studentSearch"
+                class="search-input"
+                placeholder="Search students..."
+            >
+
+        </div>
+
+
+        <!-- TABLE -->
+
+        <div class="table-responsive">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>#</th>
+
+                        <th>Name</th>
+
+                        <th>Email</th>
+
+                        <th>Role</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="studentTable">
+
+                    <tr>
+
+                        <td
+                            colspan="5"
+                            class="empty-message"
+                        >
+                            Loading students...
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<!-- =====================================================
+     ADMIN JAVASCRIPT
+====================================================== -->
+
+<script src="../static/js/admin.js"></script>
+
+
+
+</body>
+
+</html>

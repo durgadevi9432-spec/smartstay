@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Assign Room | SmartStay</title>
+
+    <link
+        rel="stylesheet"
+        href="../static/css/admin.css"
+    >
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     SIDEBAR
+====================================================== -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+        🏢 SmartStay
+    </div>
+
+    <ul class="sidebar-menu">
+
+        <li>
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="students.html">
+                👨‍🎓 Students
+            </a>
+        </li>
+
+        <li>
+            <a href="staff.html">
+                👨‍🔧 Staff
+            </a>
+        </li>
+
+        <li class="active">
+            <a href="rooms.html">
+                🏠 Rooms
+            </a>
+        </li>
+
+        <li>
+            <a href="complaints.html">
+                📝 Complaints
+            </a>
+        </li>
+
+    </ul>
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN CONTENT
+====================================================== -->
+
+<main class="main-content">
+
+    <!-- PAGE HEADER -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+                Assign Room
+            </h1>
+
+            <p>
+                Assign a room to a student
+            </p>
+
+        </div>
+
+        <a
+            href="rooms.html"
+            class="btn btn-secondary"
+        >
+            ← Back to Rooms
+        </a>
+
+    </div>
+
+
+    <!-- MESSAGE -->
+
+    <div
+        id="assignRoomMessage"
+        class="message"
+        style="display:none;"
+    ></div>
+
+
+    <!-- FORM CARD -->
+
+    <div class="form-card">
+
+        <form id="assignRoomForm">
+
+            <!-- STUDENT -->
+
+            <div class="form-group">
+
+                <label for="studentId">
+                    Select Student
+                </label>
+
+                <select
+                    id="studentId"
+                    required
+                >
+
+                    <option value="">
+                        Loading students...
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- ROOM -->
+
+            <div class="form-group">
+
+                <label for="assignRoomId">
+                    Select Room
+                </label>
+
+                <select
+                    id="assignRoomId"
+                    required
+                >
+
+                    <option value="">
+                        Loading available rooms...
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- INFORMATION -->
+
+            <div class="info-box">
+
+                <strong>
+                    🏠 Room Assignment
+                </strong>
+
+                <p>
+                    Select a student and an
+                    available room to create
+                    the room assignment.
+                </p>
+
+                <p>
+                    If the student already has
+                    another room, the old
+                    assignment will be replaced.
+                </p>
+
+            </div>
+
+
+            <!-- ACTIONS -->
+
+            <div class="form-actions">
+
+                <a
+                    href="rooms.html"
+                    class="btn btn-secondary"
+                >
+                    Cancel
+                </a>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                    id="assignRoomButton"
+                >
+                    🔑 Assign Room
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+
+
+<!-- =====================================================
+     ROOMS JS
+====================================================== -->
+
+<script
+    src="../static/js/rooms.js"
+></script>
+
+</body>
+
+</html>

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>View Student | SmartStay</title>
+
+    <link
+        rel="stylesheet"
+        href="../static/css/admin.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SIDEBAR
+====================================================== -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+        🏢 SmartStay
+    </div>
+
+
+    <ul class="sidebar-menu">
+
+        <li>
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+        </li>
+
+
+        <li class="active">
+            <a href="students.html">
+                👨‍🎓 Students
+            </a>
+        </li>
+
+
+        <li>
+            <a href="staff.html">
+                👨‍🔧 Staff
+            </a>
+        </li>
+
+
+        <li>
+            <a href="rooms.html">
+                🏠 Rooms
+            </a>
+        </li>
+
+
+        <li>
+            <a href="complaints.html">
+                📝 Complaints
+            </a>
+        </li>
+
+    </ul>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+====================================================== -->
+
+<main class="main-content">
+
+
+    <!-- PAGE HEADER -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+                Student Details
+            </h1>
+
+            <p>
+                View student information
+            </p>
+
+        </div>
+
+
+        <a
+            href="students.html"
+            class="btn-secondary"
+        >
+            ← Back to Students
+        </a>
+
+    </div>
+
+
+
+    <!-- =================================================
+         STUDENT DETAILS
+    ================================================== -->
+
+    <div class="table-card">
+
+
+        <div class="table-header">
+
+            <h2>
+                👨‍🎓 Student Information
+            </h2>
+
+        </div>
+
+
+        <!-- LOADING -->
+
+        <div
+            id="studentLoading"
+            class="empty-message"
+        >
+
+            Loading student details...
+
+        </div>
+
+
+
+        <!-- DETAILS -->
+
+        <div
+            id="studentDetails"
+            class="detail-grid"
+            style="display: none;"
+        >
+
+
+            <!-- NAME -->
+
+            <div class="detail-item">
+
+                <label>
+                    Full Name
+                </label>
+
+                <strong id="studentName">
+                    -
+                </strong>
+
+            </div>
+
+
+
+            <!-- EMAIL -->
+
+            <div class="detail-item">
+
+                <label>
+                    Email
+                </label>
+
+                <strong id="studentEmail">
+                    -
+                </strong>
+
+            </div>
+
+
+
+            <!-- PHONE -->
+
+            <div class="detail-item">
+
+                <label>
+                    Phone
+                </label>
+
+                <strong id="studentPhone">
+                    -
+                </strong>
+
+            </div>
+
+
+
+            <!-- DATE OF BIRTH -->
+
+            <div class="detail-item">
+
+                <label>
+                    Date of Birth
+                </label>
+
+                <strong id="studentDob">
+                    -
+                </strong>
+
+            </div>
+
+
+
+            <!-- GENDER -->
+
+            <div class="detail-item">
+
+                <label>
+                    Gender
+                </label>
+
+                <strong id="studentGender">
+                    -
+                </strong>
+
+            </div>
+
+
+
+            <!-- ROLE -->
+
+            <div class="detail-item">
+
+                <label>
+                    Role
+                </label>
+
+                <strong id="studentRole">
+                    -
+                </strong>
+
+            </div>
+
+
+
+            <!-- ADDRESS -->
+
+            <div
+                class="detail-item"
+                style="grid-column: 1 / -1;"
+            >
+
+                <label>
+                    Address
+                </label>
+
+                <strong id="studentAddress">
+                    -
+                </strong>
+
+            </div>
+
+
+
+            <!-- STUDENT ID -->
+
+            <div
+                class="detail-item"
+                style="grid-column: 1 / -1;"
+            >
+
+                <label>
+                    Student ID
+                </label>
+
+                <strong id="studentId">
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ERROR -->
+
+        <div
+            id="studentError"
+            class="form-message error"
+            style="display: none;"
+        ></div>
+
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script src="../static/js/admin.js"></script>
+
+
+
+<script>
+
+/* =====================================================
+   LOAD STUDENT ID FROM URL
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const studentId =
+            params.get("id");
+
+
+        if (!studentId) {
+
+            showStudentError(
+                "Student ID not found."
+            );
+
+            return;
+
+        }
+
+
+        loadStudentDetails(studentId);
+
+    }
+);
+
+
+/* =====================================================
+   LOAD STUDENT
+===================================================== */
+
+async function loadStudentDetails(id) {
+
+    const loading =
+        document.getElementById(
+            "studentLoading"
+        );
+
+
+    const details =
+        document.getElementById(
+            "studentDetails"
+        );
+
+
+    const error =
+        document.getElementById(
+            "studentError"
+        );
+
+
+    const query = `
+
+        query GetStudent(
+            $id: uuid!
+        ) {
+
+            users_by_pk(
+                id: $id
+            ) {
+
+                id
+                full_name
+                email
+                phone
+                dob
+                gender
+                role
+                address
+
+            }
+
+        }
+
+    `;
+
+
+    try {
+
+        const response =
+            await fetch(
+                HASURA_URL,
+                {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body: JSON.stringify({
+
+                        query: query,
+
+                        variables: {
+                            id: id
+                        }
+
+                    })
+
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        console.log(
+            "Student Details:",
+            result
+        );
+
+
+        if (result.errors) {
+
+            console.error(
+                result.errors
+            );
+
+
+            showStudentError(
+                result.errors[0].message
+            );
+
+            return;
+
+        }
+
+
+        const student =
+            result.data.users_by_pk;
+
+
+        if (!student) {
+
+            showStudentError(
+                "Student not found."
+            );
+
+            return;
+
+        }
+
+
+        /* ---------------------------------------------
+           DISPLAY
+        --------------------------------------------- */
+
+        document.getElementById(
+            "studentName"
+        ).textContent =
+            student.full_name || "-";
+
+
+        document.getElementById(
+            "studentEmail"
+        ).textContent =
+            student.email || "-";
+
+
+        document.getElementById(
+            "studentPhone"
+        ).textContent =
+            student.phone || "-";
+
+
+        document.getElementById(
+            "studentDob"
+        ).textContent =
+            student.dob || "-";
+
+
+        document.getElementById(
+            "studentGender"
+        ).textContent =
+            student.gender || "-";
+
+
+        document.getElementById(
+            "studentRole"
+        ).textContent =
+            student.role || "-";
+
+
+        document.getElementById(
+            "studentAddress"
+        ).textContent =
+            student.address || "-";
+
+
+        document.getElementById(
+            "studentId"
+        ).textContent =
+            student.id || "-";
+
+
+        /* ---------------------------------------------
+           SHOW DETAILS
+        --------------------------------------------- */
+
+        loading.style.display =
+            "none";
+
+
+        details.style.display =
+            "grid";
+
+    }
+
+    catch (err) {
+
+        console.error(
+            "Student request failed:",
+            err
+        );
+
+
+        showStudentError(
+            "Unable to load student details."
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   ERROR
+===================================================== */
+
+function showStudentError(message) {
+
+    const loading =
+        document.getElementById(
+            "studentLoading"
+        );
+
+
+    const error =
+        document.getElementById(
+            "studentError"
+        );
+
+
+    loading.style.display =
+        "none";
+
+
+    error.textContent =
+        message;
+
+
+    error.style.display =
+        "block";
+
+}
+
+</script>
+
+
+</body>
+
+</html>

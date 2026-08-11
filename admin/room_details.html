@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Room Details | SmartStay</title>
+
+    <link rel="stylesheet"
+          href="../static/css/admin.css">
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+        🏢 SmartStay
+    </div>
+
+    <ul class="sidebar-menu">
+
+        <li>
+            <a href="dashboard.html">📊 Dashboard</a>
+        </li>
+
+        <li>
+            <a href="students.html">👨‍🎓 Students</a>
+        </li>
+
+        <li>
+            <a href="staff.html">👨‍🔧 Staff</a>
+        </li>
+
+        <li class="active">
+            <a href="rooms.html">🏠 Rooms</a>
+        </li>
+
+        <li>
+            <a href="complaints.html">📝 Complaints</a>
+        </li>
+
+    </ul>
+
+</aside>
+
+
+<!-- MAIN -->
+
+<main class="main-content">
+
+    <!-- HEADER -->
+
+    <div class="page-header">
+
+        <div>
+            <h1 id="roomPageTitle">
+                Room Details
+            </h1>
+
+            <p>
+                View hostel room information
+            </p>
+        </div>
+
+        <div class="page-actions">
+
+            <a href="rooms.html"
+               class="btn btn-secondary">
+                ← Back
+            </a>
+
+            <a href="assign_room.html"
+               class="btn btn-primary">
+                🔑 Assign Student
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- ERROR -->
+
+    <div id="viewRoomError"
+         class="message error"
+         style="display:none;">
+    </div>
+
+
+    <!-- LOADING -->
+
+    <div id="viewRoomLoading"
+         class="loading">
+
+        Loading room details...
+
+    </div>
+
+
+    <!-- CONTENT -->
+
+    <div id="roomDetailsContent"
+         style="display:none;">
+
+
+        <!-- ROOM INFORMATION -->
+
+        <div class="details-card">
+
+            <div class="details-header">
+
+                <div>
+
+                    <h2>
+                        🏠 Room
+                        <span id="roomNumberTitle"></span>
+                    </h2>
+
+                    <p>
+                        Room Information
+                    </p>
+
+                </div>
+
+                <span id="roomStatusBadge"
+                      class="status-badge">
+                </span>
+
+            </div>
+
+
+            <div class="details-grid">
+
+                <div class="detail-item">
+
+                    <span>Room Number</span>
+
+                    <strong id="detailRoomNumber">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span>Room Type</span>
+
+                    <strong id="detailRoomType">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span>Capacity</span>
+
+                    <strong id="detailCapacity">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span>Floor</span>
+
+                    <strong id="detailFloor">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span>Status</span>
+
+                    <strong id="detailStatus">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="detail-item">
+
+                    <span>Room ID</span>
+
+                    <strong id="detailRoomId"
+                            class="uuid">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ASSIGNED STUDENTS -->
+
+        <div class="table-card">
+
+            <div class="table-header">
+
+                <div>
+
+                    <h2>
+                        👨‍🎓 Assigned Students
+                    </h2>
+
+                    <p>
+                        Students currently assigned to this room
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- LOADING -->
+
+            <div id="assignedStudentsLoading"
+                 class="loading">
+
+                Loading students...
+
+            </div>
+
+
+            <!-- EMPTY -->
+
+            <div id="assignedStudentsEmpty"
+                 class="empty-state"
+                 style="display:none;">
+
+                <div class="empty-icon">
+                    👨‍🎓
+                </div>
+
+                <h3>
+                    No Students Assigned
+                </h3>
+
+                <p>
+                    No students are currently assigned
+                    to this room.
+                </p>
+
+                <a href="assign_room.html"
+                   class="btn btn-primary">
+
+                    🔑 Assign Student
+
+                </a>
+
+            </div>
+
+
+            <!-- TABLE -->
+
+            <div id="assignedStudentsTable"
+                 class="table-responsive"
+                 style="display:none;">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>#</th>
+
+                            <th>
+                                Student Name
+                            </th>
+
+                            <th>
+                                Email
+                            </th>
+
+                            <th>
+                                Assigned At
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="assignedStudentsBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script src="../static/js/rooms.js"></script>
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        loadRoomDetails();
+
+    }
+);
+
+</script>
+
+</body>
+</html>

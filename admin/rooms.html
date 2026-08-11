@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rooms | SmartStay</title>
+<link rel="stylesheet" href="../static/css/admin.css">
+</head>
+
+<body>
+
+<aside class="sidebar">
+    <div class="logo">🏢 SmartStay</div>
+
+    <ul class="sidebar-menu">
+        <li><a href="dashboard.html">📊 Dashboard</a></li>
+        <li><a href="students.html">👨‍🎓 Students</a></li>
+        <li><a href="staff.html">👨‍🔧 Staff</a></li>
+        <li class="active"><a href="rooms.html">🏠 Rooms</a></li>
+        <li><a href="complaints.html">📝 Complaints</a></li>
+    </ul>
+</aside>
+
+<main class="main-content">
+
+    <div class="page-header">
+        <div>
+            <h1>Room Management</h1>
+            <p>Manage hostel rooms and student assignments</p>
+        </div>
+
+        <div class="page-actions">
+
+    <a href="add_room.html" class="btn btn-primary">
+        ➕ Add Room
+    </a>
+
+    <button class="btn-primary" onclick="openAssignRoom()">
+        🔑 Assign Room
+    </button>
+
+    </div>
+    </div>
+
+    <div class="table-card">
+        <div class="table-header">
+            <div>
+                <h2>View Rooms</h2>
+                <p>Block A - Female | Block B - Male</p>
+            </div>
+
+            <input id="roomSearch"
+                   class="search-input"
+                   placeholder="Search room...">
+        </div>
+    </div>
+
+
+    <!-- FEMALE / BLOCK A -->
+    <section class="room-section">
+
+        <div class="section-title">
+            <div class="section-icon">👩</div>
+            <div>
+                <h2>Female Rooms — Block A</h2>
+                <p>Rooms for female students</p>
+            </div>
+        </div>
+
+        <div class="table-card">
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Room</th>
+                            <th>Floor</th>
+                            <th>Type</th>
+                            <th>Capacity</th>
+                            <th>Occupied</th>
+                            <th>Available</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="femaleRoomTable">
+                        <tr>
+                            <td colspan="9" class="empty-message">
+                                Loading rooms...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- MALE / BLOCK B -->
+    <section class="room-section">
+
+        <div class="section-title">
+            <div class="section-icon">👨</div>
+            <div>
+                <h2>Male Rooms — Block B</h2>
+                <p>Rooms for male students</p>
+            </div>
+        </div>
+
+        <div class="table-card">
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Room</th>
+                            <th>Floor</th>
+                            <th>Type</th>
+                            <th>Capacity</th>
+                            <th>Occupied</th>
+                            <th>Available</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="maleRoomTable">
+                        <tr>
+                            <td colspan="9" class="empty-message">
+                                Loading rooms...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ASSIGN ROOM -->
+<div id="assignRoomPanel" class="modal-overlay" style="display:none">
+
+    <div class="modal-card">
+
+        <div class="modal-header">
+            <div>
+                <h2>Assign Room</h2>
+                <p>Assign a student to a room</p>
+            </div>
+
+            <button class="modal-close" onclick="closeAssignRoom()">×</button>
+        </div>
+
+        <form id="assignForm">
+
+            <div class="form-group">
+                <label>Student</label>
+                <select id="studentSelect" required>
+                    <option value="">Select student</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Room</label>
+                <select id="roomSelect" required>
+                    <option value="">Select room</option>
+                </select>
+            </div>
+
+            <div id="assignMessage" class="message"></div>
+
+            <div class="modal-actions">
+                <button type="button"
+                        class="btn-secondary"
+                        onclick="closeAssignRoom()">
+                    Cancel
+                </button>
+
+                <button type="submit" class="btn-primary">
+                    Assign Room
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+<!-- VIEW ROOM -->
+<div id="viewRoomPanel" class="modal-overlay" style="display:none">
+
+    <div class="modal-card">
+
+        <div class="modal-header">
+            <div>
+                <h2 id="viewTitle">Room Details</h2>
+                <p>Room information and students</p>
+            </div>
+
+            <button class="modal-close" onclick="closeViewRoom()">×</button>
+        </div>
+
+        <div class="room-details">
+
+            <div class="detail-box">
+                <span>Room Number</span>
+                <strong id="viewNumber">-</strong>
+            </div>
+
+            <div class="detail-box">
+                <span>Floor</span>
+                <strong id="viewFloor">-</strong>
+            </div>
+
+            <div class="detail-box">
+                <span>Room Type</span>
+                <strong id="viewType">-</strong>
+            </div>
+
+            <div class="detail-box">
+                <span>Capacity</span>
+                <strong id="viewCapacity">-</strong>
+            </div>
+
+            <div class="detail-box">
+                <span>Occupied</span>
+                <strong id="viewOccupied">-</strong>
+            </div>
+
+            <div class="detail-box">
+                <span>Available</span>
+                <strong id="viewAvailable">-</strong>
+            </div>
+
+        </div>
+
+        <div class="occupants-section">
+            <h3>👨‍🎓 Students</h3>
+            <div id="occupants">
+                <p class="empty-message">Loading students...</p>
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <button class="btn-secondary" onclick="closeViewRoom()">
+                Close
+            </button>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="../static/js/rooms.js"></script>
+
+</body>
+</html>

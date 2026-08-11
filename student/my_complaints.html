@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Complaints | SmartStay</title>
+
+    <link
+        rel="stylesheet"
+        href="../static/css/student.css"
+    >
+
+</head>
+
+<body data-page="complaints">
+
+<aside class="sidebar">
+
+    <div class="logo">
+        🏢 <span>SmartStay</span>
+    </div>
+
+    <div class="menu-title">
+        Menu
+    </div>
+
+    <a href="dashboard.html">
+        📊 Dashboard
+    </a>
+
+    <a href="add_complaint.html">
+        ➕ Add Complaint
+    </a>
+
+    <a href="my_complaints.html" class="active">
+        📝 My Complaints
+    </a>
+
+    <a href="profile.html">
+        👤 Profile
+    </a>
+
+    <a href="#" onclick="logoutStudent()">
+        🚪 Logout
+    </a>
+
+</aside>
+
+
+<main class="main-content">
+
+    <header class="page-header">
+
+        <h1>My Complaints</h1>
+
+        <p>
+            View your submitted complaints
+        </p>
+
+    </header>
+
+
+    <section class="profile-card">
+
+        <div class="card-title">
+
+            <h2>📝 Complaint History</h2>
+
+            <p>
+                Your complaints and their current status
+            </p>
+
+        </div>
+
+
+        <div id="complaintsList">
+
+            Loading...
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="../static/js/student.js"></script>
+
+</body>
+
+</html>

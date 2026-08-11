@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Complaint Details | SmartStay</title>
+
+    <link
+        rel="stylesheet"
+        href="../static/css/student.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="student-layout">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="student-sidebar">
+
+        <div class="student-brand">
+
+            <div class="student-brand-icon">
+                🏢
+            </div>
+
+            <h2>SmartStay</h2>
+
+        </div>
+
+
+        <nav class="student-nav">
+
+            <div class="student-nav-title">
+                Menu
+            </div>
+
+
+            <a href="dashboard.html">
+                <span class="student-nav-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a href="add_complaint.html">
+                <span class="student-nav-icon">➕</span>
+                <span>Add Complaint</span>
+            </a>
+
+
+            <a
+                href="my_complaints.html"
+                class="active"
+            >
+                <span class="student-nav-icon">📝</span>
+                <span>My Complaints</span>
+            </a>
+
+
+            <a href="profile.html">
+                <span class="student-nav-icon">👤</span>
+                <span>Profile</span>
+            </a>
+
+        </nav>
+
+
+        <div class="student-logout">
+
+            <a href="#" id="studentLogout">
+                <span>🚪</span>
+                <span>Logout</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- MAIN -->
+
+    <main class="student-main">
+
+
+        <header class="student-topbar">
+
+            <div>
+
+                <div class="student-page-title">
+                    Complaint Details
+                </div>
+
+                <div class="student-page-subtitle">
+                    View complaint information
+                </div>
+
+            </div>
+
+
+            <div class="student-user">
+
+                <div class="student-user-info">
+
+                    <div
+                        class="student-user-name"
+                        id="studentName"
+                    >
+                        Student
+                    </div>
+
+                    <div class="student-user-role">
+                        Student
+                    </div>
+
+                </div>
+
+
+                <div class="student-avatar">
+                    👨‍🎓
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <section
+            class="student-content"
+            id="complaintDetails"
+        >
+
+
+            <div class="student-card">
+
+                <div class="student-card-header">
+
+                    <div>
+
+                        <div class="student-card-title">
+                            Complaint Information
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="student-detail-grid">
+
+
+                    <div class="student-detail-item">
+
+                        <div class="student-detail-label">
+                            Complaint ID
+                        </div>
+
+                        <div
+                            class="student-detail-value"
+                            id="complaintId"
+                        >
+                            Loading...
+                        </div>
+
+                    </div>
+
+
+                    <div class="student-detail-item">
+
+                        <div class="student-detail-label">
+                            Category
+                        </div>
+
+                        <div
+                            class="student-detail-value"
+                            id="complaintCategory"
+                        >
+                            Loading...
+                        </div>
+
+                    </div>
+
+
+                    <div class="student-detail-item">
+
+                        <div class="student-detail-label">
+                            Title
+                        </div>
+
+                        <div
+                            class="student-detail-value"
+                            id="complaintTitle"
+                        >
+                            Loading...
+                        </div>
+
+                    </div>
+
+
+                    <div class="student-detail-item">
+
+                        <div class="student-detail-label">
+                            Priority
+                        </div>
+
+                        <div
+                            class="student-detail-value"
+                            id="complaintPriority"
+                        >
+                            Loading...
+                        </div>
+
+                    </div>
+
+
+                    <div class="student-detail-item">
+
+                        <div class="student-detail-label">
+                            Status
+                        </div>
+
+                        <div
+                            class="student-detail-value"
+                            id="complaintStatus"
+                        >
+                            Loading...
+                        </div>
+
+                    </div>
+
+
+                    <div class="student-detail-item">
+
+                        <div class="student-detail-label">
+                            Room ID
+                        </div>
+
+                        <div
+                            class="student-detail-value"
+                            id="complaintRoom"
+                        >
+                            Loading...
+                        </div>
+
+                    </div>
+
+
+                    <div class="student-detail-item">
+
+                        <div class="student-detail-label">
+                            Created
+                        </div>
+
+                        <div
+                            class="student-detail-value"
+                            id="complaintCreated"
+                        >
+                            Loading...
+                        </div>
+
+                    </div>
+
+
+                    <div class="student-detail-item">
+
+                        <div class="student-detail-label">
+                            Updated
+                        </div>
+
+                        <div
+                            class="student-detail-value"
+                            id="complaintUpdated"
+                        >
+                            Loading...
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+            <div class="student-card">
+
+                <div class="student-card-title">
+                    Description
+                </div>
+
+
+                <p
+                    id="complaintDescription"
+                    style="
+                        margin-top:15px;
+                        line-height:1.7;
+                        color:#4b5563;
+                    "
+                >
+                    Loading...
+                </p>
+
+            </div>
+
+
+
+            <div style="margin-top:20px;">
+
+                <a
+                    href="my_complaints.html"
+                    class="student-btn student-btn-secondary"
+                >
+                    ← Back to Complaints
+                </a>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="../static/js/student.js"></script>
+
+</body>
+
+</html>

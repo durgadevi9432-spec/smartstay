@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Complaints | SmartStay</title>
+
+    <link
+        rel="stylesheet"
+        href="../static/css/admin.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+        🏢 SmartStay
+    </div>
+
+
+    <ul class="sidebar-menu">
+
+        <li>
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+        </li>
+
+
+        <li>
+            <a href="students.html">
+                👨‍🎓 Students
+            </a>
+        </li>
+
+
+        <li>
+            <a href="staff.html">
+                👨‍🔧 Staff
+            </a>
+        </li>
+
+
+        <li>
+            <a href="rooms.html">
+                🏠 Rooms
+            </a>
+        </li>
+
+
+        <li class="active">
+            <a href="complaints.html">
+                📝 Complaints
+            </a>
+        </li>
+
+    </ul>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main class="main-content">
+
+
+    <!-- =================================================
+         PAGE HEADER
+    ================================================== -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+                Complaints
+            </h1>
+
+            <p>
+                Manage hostel complaints
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         STATISTICS
+    ================================================== -->
+
+    <div class="stats-grid">
+
+
+        <!-- TOTAL -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                📝
+            </div>
+
+            <div>
+
+                <h3>
+                    Total
+                </h3>
+
+                <p id="totalComplaints">
+                    0
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PENDING -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ⏳
+            </div>
+
+            <div>
+
+                <h3>
+                    Pending
+                </h3>
+
+                <p id="pendingComplaints">
+                    0
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- IN PROGRESS -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🔧
+            </div>
+
+            <div>
+
+                <h3>
+                    In Progress
+                </h3>
+
+                <p id="progressComplaints">
+                    0
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RESOLVED -->
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                ✅
+            </div>
+
+            <div>
+
+                <h3>
+                    Resolved
+                </h3>
+
+                <p id="resolvedComplaints">
+                    0
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         COMPLAINT TABLE
+    ================================================== -->
+
+    <div class="table-card">
+
+
+        <!-- TABLE HEADER -->
+
+        <div class="table-header">
+
+            <h2>
+
+                Complaints
+
+                (
+                <span id="complaintTotal">
+                    0
+                </span>
+                )
+
+            </h2>
+
+
+            <input
+                type="text"
+                id="complaintSearch"
+                class="search-input"
+                placeholder="Search complaints..."
+            >
+
+        </div>
+
+
+
+        <!-- =================================================
+             FILTERS
+        ================================================== -->
+
+        <div class="filter-row">
+
+
+            <!-- STATUS -->
+
+            <select id="statusFilter">
+
+                <option value="all">
+                    All Status
+                </option>
+
+                <option value="Pending">
+                    Pending
+                </option>
+
+                <option value="In Progress">
+                    In Progress
+                </option>
+
+                <option value="Resolved">
+                    Resolved
+                </option>
+
+            </select>
+
+
+
+            <!-- PRIORITY -->
+
+            <select id="priorityFilter">
+
+                <option value="all">
+                    All Priority
+                </option>
+
+                <option value="Low">
+                    Low
+                </option>
+
+                <option value="Medium">
+                    Medium
+                </option>
+
+                <option value="High">
+                    High
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- =================================================
+             TABLE
+        ================================================== -->
+
+        <div class="table-responsive">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            #
+                        </th>
+
+                        <th>
+                            Student
+                        </th>
+
+                        <th>
+                            Room
+                        </th>
+
+                        <th>
+                            Title
+                        </th>
+
+                        <th>
+                            Category
+                        </th>
+
+                        <th>
+                            Priority
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Assigned Staff
+                        </th>
+
+                        <th>
+                            Action
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+
+                <tbody id="complaintTable">
+
+                    <tr>
+
+                        <td
+                            colspan="9"
+                            class="empty-message"
+                        >
+
+                            Loading complaints...
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+
+
+
+
+      
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script
+    src="../static/js/complaints.js"
+></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Dashboard | SmartStay</title>
+
+    <link
+        rel="stylesheet"
+        href="../static/css/admin.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- =================================================
+         SIDEBAR
+    ================================================= -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                🏢
+            </div>
+
+            <div>
+                <h2>SmartStay</h2>
+                <span>Hostel Management</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a
+                href="dashboard.html"
+                class="nav-item active"
+            >
+                <span class="nav-icon">📊</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="students.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">👨‍🎓</span>
+                <span>Students</span>
+            </a>
+
+
+            <a
+                href="staff.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">👨‍🔧</span>
+                <span>Staff</span>
+            </a>
+
+
+            <a
+                href="rooms.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">🏠</span>
+                <span>Rooms</span>
+            </a>
+
+
+            <a
+                href="complaints.html"
+                class="nav-item"
+            >
+                <span class="nav-icon">📝</span>
+                <span>Complaints</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="admin-mini-profile">
+
+                <div class="profile-avatar">
+                    A
+                </div>
+
+                <div class="profile-info">
+
+                    <strong>Administrator</strong>
+
+                    <span>SmartStay Admin</span>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="logout-btn"
+                onclick="logout()"
+            >
+                🚪 Logout
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =================================================
+         MAIN CONTENT
+    ================================================= -->
+
+    <main class="main-content">
+
+
+        <!-- TOP HEADER -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <div class="breadcrumb">
+                    SmartStay / Dashboard
+                </div>
+
+                <h1>Admin Dashboard</h1>
+
+                <p>
+                    Welcome back! Here's what's happening
+                    in your hostel today.
+                </p>
+
+            </div>
+
+
+            <div class="header-date">
+
+                <span class="date-icon">
+                    📅
+                </span>
+
+                <div>
+
+                    <small>Today</small>
+
+                    <strong id="currentDate">
+                        Loading...
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             STATISTICS
+        ================================================= -->
+
+        <section class="stats-grid">
+
+
+            <!-- STUDENTS -->
+
+            <div class="stat-card students-card">
+
+                <div class="stat-top">
+
+                    <div class="stat-icon">
+                        👨‍🎓
+                    </div>
+
+                    <span class="stat-label">
+                        Students
+                    </span>
+
+                </div>
+
+
+                <div class="stat-value">
+                    <span id="totalStudents">0</span>
+                </div>
+
+
+                <div class="stat-footer">
+
+                    <span class="stat-status positive">
+                        ● Active
+                    </span>
+
+                    <span>
+                        Registered students
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STAFF -->
+
+            <div class="stat-card staff-card">
+
+                <div class="stat-top">
+
+                    <div class="stat-icon">
+                        👨‍🔧
+                    </div>
+
+                    <span class="stat-label">
+                        Staff
+                    </span>
+
+                </div>
+
+
+                <div class="stat-value">
+                    <span id="totalStaff">0</span>
+                </div>
+
+
+                <div class="stat-footer">
+
+                    <span class="stat-status positive">
+                        ● Active
+                    </span>
+
+                    <span>
+                        Hostel staff
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ROOMS -->
+
+            <div class="stat-card rooms-card">
+
+                <div class="stat-top">
+
+                    <div class="stat-icon">
+                        🏠
+                    </div>
+
+                    <span class="stat-label">
+                        Rooms
+                    </span>
+
+                </div>
+
+
+                <div class="stat-value">
+                    <span id="totalRooms">0</span>
+                </div>
+
+
+                <div class="stat-footer">
+
+                    <span class="stat-status info">
+                        ● Available
+                    </span>
+
+                    <span>
+                        Hostel rooms
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- COMPLAINTS -->
+
+            <div class="stat-card complaints-card">
+
+                <div class="stat-top">
+
+                    <div class="stat-icon">
+                        📝
+                    </div>
+
+                    <span class="stat-label">
+                        Complaints
+                    </span>
+
+                </div>
+
+
+                <div class="stat-value">
+                    <span id="totalComplaints">0</span>
+                </div>
+
+
+                <div class="stat-footer">
+
+                    <span class="stat-status warning">
+                        ● Attention
+                    </span>
+
+                    <span>
+                        Maintenance requests
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MAIN DASHBOARD GRID
+        ================================================= -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- QUICK ACTIONS -->
+
+            <div class="dashboard-card quick-actions-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>Quick Actions</h2>
+
+                        <p>
+                            Frequently used administration tasks
+                        </p>
+
+                    </div>
+
+                    <span class="header-icon">
+                        ⚡
+                    </span>
+
+                </div>
+
+
+                <div class="quick-actions">
+
+
+                    <a
+                        href="add_student.html"
+                        class="quick-action blue"
+                    >
+
+                        <span class="action-icon">
+                            👨‍🎓
+                        </span>
+
+                        <span>
+
+                            <strong>
+                                Add Student
+                            </strong>
+
+                            <small>
+                                Register new student
+                            </small>
+
+                        </span>
+
+                        <b>→</b>
+
+                    </a>
+
+
+
+                    <a
+                        href="add_staff.html"
+                        class="quick-action green"
+                    >
+
+                        <span class="action-icon">
+                            👨‍🔧
+                        </span>
+
+                        <span>
+
+                            <strong>
+                                Add Staff
+                            </strong>
+
+                            <small>
+                                Register hostel staff
+                            </small>
+
+                        </span>
+
+                        <b>→</b>
+
+                    </a>
+
+
+
+                    <a
+                        href="assign_room.html"
+                        class="quick-action purple"
+                    >
+
+                        <span class="action-icon">
+                            🏠
+                        </span>
+
+                        <span>
+
+                            <strong>
+                                Assign Room
+                            </strong>
+
+                            <small>
+                                Assign student to room
+                            </small>
+
+                        </span>
+
+                        <b>→</b>
+
+                    </a>
+
+
+
+                    <a
+                        href="complaints.html"
+                        class="quick-action orange"
+                    >
+
+                        <span class="action-icon">
+                            📝
+                        </span>
+
+                        <span>
+
+                            <strong>
+                                View Complaints
+                            </strong>
+
+                            <small>
+                                Manage maintenance issues
+                            </small>
+
+                        </span>
+
+                        <b>→</b>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- COMPLAINT OVERVIEW -->
+
+            <div class="dashboard-card complaint-overview">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>Complaint Overview</h2>
+
+                        <p>
+                            Current complaint status
+                        </p>
+
+                    </div>
+
+                    <span class="header-icon">
+                        📝
+                    </span>
+
+                </div>
+
+
+                <div class="complaint-stats">
+
+
+                    <div class="complaint-stat pending">
+
+                        <div class="complaint-number">
+                            <span id="pendingComplaints">
+                                0
+                            </span>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Pending
+                            </strong>
+
+                            <small>
+                                Awaiting action
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="complaint-stat progress">
+
+                        <div class="complaint-number">
+                            <span id="progressComplaints">
+                                0
+                            </span>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                In Progress
+                            </strong>
+
+                            <small>
+                                Being handled
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="complaint-stat resolved">
+
+                        <div class="complaint-number">
+                            <span id="resolvedComplaints">
+                                0
+                            </span>
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Resolved
+                            </strong>
+
+                            <small>
+                                Successfully completed
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="complaints.html"
+                    class="view-all-btn"
+                >
+                    View All Complaints →
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             BOTTOM SECTION
+        ================================================= -->
+
+        <section class="bottom-grid">
+
+
+            <!-- SYSTEM OVERVIEW -->
+
+            <div class="dashboard-card system-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>System Overview</h2>
+
+                        <p>
+                            SmartStay management summary
+                        </p>
+
+                    </div>
+
+                    <span class="header-icon">
+                        🏢
+                    </span>
+
+                </div>
+
+
+                <div class="system-content">
+
+
+                    <div class="system-welcome">
+
+                        <div class="system-logo">
+                            🏢
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                SmartStay Hostel
+                            </h3>
+
+                            <p>
+                                A centralized hostel management
+                                system for students, staff,
+                                rooms and maintenance complaints.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="system-features">
+
+                        <div>
+                            <span>✓</span>
+                            Student Management
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            Staff Management
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            Room Management
+                        </div>
+
+                        <div>
+                            <span>✓</span>
+                            Complaint Tracking
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ADMIN INFO -->
+
+            <div class="dashboard-card admin-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>Admin Panel</h2>
+
+                        <p>
+                            Manage your hostel efficiently
+                        </p>
+
+                    </div>
+
+                    <span class="header-icon">
+                        🛡️
+                    </span>
+
+                </div>
+
+
+                <div class="admin-info">
+
+
+                    <div class="admin-avatar">
+                        A
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Administrator
+                        </h3>
+
+                        <p>
+                            System Administrator
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="admin-status">
+
+                    <span class="online-dot"></span>
+
+                    <span>
+                        System operational
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="dashboard-footer">
+
+            <span>
+                © 2026 SmartStay Hostel Management System
+            </span>
+
+            <span>
+                Admin Panel • v1.0
+            </span>
+
+        </footer>
+
+
+    </main>
+
+</div>
+
+
+<script src="../static/js/admin.js"></script>
+
+</body>
+
+</html>

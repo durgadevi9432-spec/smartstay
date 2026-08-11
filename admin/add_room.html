@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Add Room | SmartStay</title>
+
+    <link
+        rel="stylesheet"
+        href="../static/css/admin.css"
+    >
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     SIDEBAR
+====================================================== -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+        🏢 SmartStay
+    </div>
+
+    <ul class="sidebar-menu">
+
+        <li>
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="students.html">
+                👨‍🎓 Students
+            </a>
+        </li>
+
+        <li>
+            <a href="staff.html">
+                👨‍🔧 Staff
+            </a>
+        </li>
+
+        <li class="active">
+            <a href="rooms.html">
+                🏠 Rooms
+            </a>
+        </li>
+
+        <li>
+            <a href="complaints.html">
+                📝 Complaints
+            </a>
+        </li>
+
+    </ul>
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN CONTENT
+====================================================== -->
+
+<main class="main-content">
+
+
+    <!-- PAGE HEADER -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>
+                Add Room
+            </h1>
+
+            <p>
+                Add a new hostel room
+            </p>
+
+        </div>
+
+        <a
+            href="rooms.html"
+            class="btn btn-secondary"
+        >
+            ← Back to Rooms
+        </a>
+
+    </div>
+
+
+    <!-- MESSAGE -->
+
+    <div
+        id="roomFormMessage"
+        class="form-message"
+        style="display: none;"
+    ></div>
+
+
+    <!-- FORM -->
+
+    <div class="form-card">
+
+        <form id="addRoomForm">
+
+
+            <!-- ROOM NUMBER -->
+
+            <div class="form-group">
+
+                <label for="roomNumber">
+                    Room Number
+                </label>
+
+                <input
+                    type="text"
+                    id="roomNumber"
+                    placeholder="Example: A-101"
+                    required
+                >
+
+            </div>
+
+
+            <!-- ROOM TYPE -->
+
+            <div class="form-group">
+
+                <label for="roomType">
+                    Room Type
+                </label>
+
+                <select
+                    id="roomType"
+                    required
+                >
+
+                    <option value="">
+                        Select Room Type
+                    </option>
+
+                    <option value="Single">
+                        Single
+                    </option>
+
+                    <option value="Double">
+                        Double
+                    </option>
+
+                    <option value="Triple">
+                        Triple
+                    </option>
+
+                    <option value="Four Sharing">
+                        Four Sharing
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- CAPACITY -->
+
+            <div class="form-group">
+
+                <label for="roomCapacity">
+                    Capacity
+                </label>
+
+                <input
+                    type="number"
+                    id="roomCapacity"
+                    min="1"
+                    placeholder="Example: 4"
+                    required
+                >
+
+            </div>
+
+
+            <!-- FLOOR -->
+
+            <div class="form-group">
+
+                <label for="roomFloor">
+                    Floor
+                </label>
+
+                <input
+                    type="number"
+                    id="roomFloor"
+                    min="0"
+                    placeholder="Example: 1"
+                    required
+                >
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div class="form-group">
+
+                <label for="roomStatus">
+                    Status
+                </label>
+
+                <select
+                    id="roomStatus"
+                    required
+                >
+
+                    <option value="Available">
+                        Available
+                    </option>
+
+                    <option value="Occupied">
+                        Occupied
+                    </option>
+
+                    <option value="Maintenance">
+                        Maintenance
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- INFORMATION -->
+
+            <div class="info-box">
+
+                <strong>
+                    🏠 Room Information
+                </strong>
+
+                <p>
+                    Add the room number, type,
+                    capacity, floor and current status.
+                </p>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="form-actions">
+
+                <a
+                    href="rooms.html"
+                    class="btn btn-secondary"
+                >
+                    Cancel
+                </a>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                >
+                    ➕ Add Room
+                </button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+
+</main>
+
+
+<!-- =====================================================
+     ROOMS JAVASCRIPT
+====================================================== -->
+
+<script src="../static/js/rooms.js"></script>
+
+
+</body>
+</html>

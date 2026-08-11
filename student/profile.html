@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile | SmartStay</title>
+
+    <link rel="stylesheet"
+          href="../static/css/student.css">
+
+</head>
+
+
+<body data-page="profile">
+
+
+    <!-- =================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            🏢 SmartStay
+        </div>
+
+        <div class="menu-title">
+            Menu
+        </div>
+
+        <nav>
+
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+
+            <a href="add_complaint.html">
+                ➕ Add Complaint
+            </a>
+
+            <a href="my_complaints.html">
+                📝 My Complaints
+            </a>
+
+            <a href="profile.html"
+               class="active">
+                👤 Profile
+            </a>
+
+            <a href="#"
+               class="logout-btn">
+                🚪 Logout
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- =================================================
+         MAIN
+    ================================================== -->
+
+    <main class="main-content">
+
+
+        <header class="page-header">
+
+            <h1>My Profile</h1>
+
+            <p>
+                View your student information
+            </p>
+
+        </header>
+
+
+        <!-- =================================================
+             PROFILE HEADER
+        ================================================== -->
+
+        <section class="profile-header">
+
+            <div class="profile-avatar">
+                👨‍🎓
+            </div>
+
+            <div>
+
+                <h2 id="profileName">
+                    Loading...
+                </h2>
+
+                <p id="profileRole">
+                    Loading...
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PERSONAL INFORMATION
+        ================================================== -->
+
+        <section class="card">
+
+            <h2>
+                👤 Personal Information
+            </h2>
+
+            <p>
+                Your registered student details
+            </p>
+
+
+            <div class="info-grid">
+
+                <div class="info-item">
+
+                    <span>
+                        Full Name
+                    </span>
+
+                    <strong id="fullName">
+                        Loading...
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        Email Address
+                    </span>
+
+                    <strong id="email">
+                        Loading...
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        Phone Number
+                    </span>
+
+                    <strong id="phone">
+                        Loading...
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        Role
+                    </span>
+
+                    <strong id="role">
+                        Loading...
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        Student ID
+                    </span>
+
+                    <strong id="studentId">
+                        Loading...
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        Course
+                    </span>
+
+                    <strong id="course">
+                        Loading...
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        Year
+                    </span>
+
+                    <strong id="year">
+                        Loading...
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ROOM INFORMATION
+        ================================================== -->
+
+        <section class="card">
+
+            <h2>
+                🏠 Room Information
+            </h2>
+
+            <p>
+                Your current hostel room assignment
+            </p>
+
+
+            <div class="info-grid">
+
+                <div class="info-item">
+
+                    <span>
+                        Room Number
+                    </span>
+
+                    <strong id="roomNumber">
+                        Loading...
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        Room Type
+                    </span>
+
+                    <strong id="roomType">
+                        Loading...
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        Floor
+                    </span>
+
+                    <strong id="floor">
+                        Loading...
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        Assigned Date
+                    </span>
+
+                    <strong id="assignedDate">
+                        Loading...
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        Room Status
+                    </span>
+
+                    <strong id="roomStatus">
+                        Loading...
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ACCOUNT INFORMATION
+        ================================================== -->
+
+        <section class="card">
+
+            <h2>
+                🔐 Account Information
+            </h2>
+
+            <p>
+                SmartStay account details
+            </p>
+
+
+            <div class="info-grid">
+
+                <div class="info-item">
+
+                    <span>
+                        Account Status
+                    </span>
+
+                    <strong id="accountStatus">
+                        Loading...
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span>
+                        User Role
+                    </span>
+
+                    <strong id="userRole">
+                        Loading...
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =================================================
+         STUDENT JS
+    ================================================== -->
+
+    <script src="../static/js/student.js"></script>
+
+</body>
+
+</html>

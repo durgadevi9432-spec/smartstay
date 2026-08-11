@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- =====================================================
+         META
+    ====================================================== -->
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Add Student | SmartStay</title>
+
+
+    <!-- =====================================================
+         ADMIN CSS
+    ====================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="../static/css/admin.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     SIDEBAR
+====================================================== -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+        🏢 SmartStay
+    </div>
+
+    <ul class="sidebar-menu">
+
+        <li>
+            <a href="dashboard.html">
+                📊 Dashboard
+            </a>
+        </li>
+
+        <li class="active">
+            <a href="students.html">
+                👨‍🎓 Students
+            </a>
+        </li>
+
+        <li>
+            <a href="staff.html">
+                👨‍🔧 Staff
+            </a>
+        </li>
+
+        <li>
+            <a href="rooms.html">
+                🏠 Rooms
+            </a>
+        </li>
+
+        <li>
+            <a href="complaints.html">
+                📝 Complaints
+            </a>
+        </li>
+
+    </ul>
+
+</aside>
+
+
+<!-- =====================================================
+     MAIN CONTENT
+====================================================== -->
+
+<main class="main-content">
+
+
+    <!-- =================================================
+         PAGE HEADER
+    ================================================== -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h1>Add Student</h1>
+
+            <p>
+                Add a new student to SmartStay
+            </p>
+
+        </div>
+
+
+        <a
+            href="students.html"
+            class="btn-secondary"
+        >
+            ← Back
+        </a>
+
+    </div>
+
+
+    <!-- =================================================
+         FORM CARD
+    ================================================== -->
+
+    <div class="form-card">
+
+        <form id="addStudentForm">
+
+
+            <div class="form-grid">
+
+
+                <!-- =================================================
+                     FULL NAME
+                ================================================== -->
+
+                <div class="form-group">
+
+                    <label for="fullName">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        placeholder="Enter student's full name"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- =================================================
+                     EMAIL
+                ================================================== -->
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Enter student's email"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- =================================================
+                     PASSWORD
+                ================================================== -->
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter student's password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- =================================================
+                     PHONE
+                ================================================== -->
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        placeholder="Enter phone number"
+                        maxlength="15"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- =================================================
+                     DATE OF BIRTH
+                ================================================== -->
+
+                <div class="form-group">
+
+                    <label for="dob">
+                        Date of Birth
+                    </label>
+
+                    <input
+                        type="date"
+                        id="dob"
+                        name="dob"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- =================================================
+                     GENDER
+                ================================================== -->
+
+                <div class="form-group">
+
+                    <label for="gender">
+                        Gender
+                    </label>
+
+                    <select
+                        id="gender"
+                        name="gender"
+                        required
+                    >
+
+                        <option value="">
+                            Select Gender
+                        </option>
+
+                        <option value="Male">
+                            Male
+                        </option>
+
+                        <option value="Female">
+                            Female
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- =================================================
+                     ROLE
+                ================================================== -->
+
+                <div class="form-group">
+
+                    <label for="role">
+                        Role
+                    </label>
+
+                    <input
+                        type="text"
+                        id="role"
+                        name="role"
+                        value="student"
+                        readonly
+                    >
+
+                </div>
+
+
+                <!-- =================================================
+                     ADDRESS
+                ================================================== -->
+
+                <div class="form-group full-width">
+
+                    <label for="address">
+                        Address
+                    </label>
+
+                    <textarea
+                        id="address"
+                        name="address"
+                        rows="4"
+                        placeholder="Enter student's address"
+                        required
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 FORM MESSAGE
+            ================================================== -->
+
+            <div
+                id="formMessage"
+                class="form-message"
+            ></div>
+
+
+            <!-- =================================================
+                 FORM ACTIONS
+            ================================================== -->
+
+            <div class="form-actions">
+
+                <a
+                    href="students.html"
+                    class="btn-secondary"
+                >
+                    Cancel
+                </a>
+
+
+                <button
+                    type="submit"
+                    class="btn-primary"
+                >
+                    Add Student
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+
+
+<!-- =====================================================
+     ADMIN JAVASCRIPT
+====================================================== -->
+
+<script src="../static/js/admin.js"></script>
+
+
+</body>
+
+</html>
